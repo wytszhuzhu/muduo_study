@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/tensorrt/my_muduo/muduo/base/Timestamp.cc
+muduo/base/Timestamp.h
+/tensorrt/my_muduo/muduo/base/muduo/base/Timestamp.h
+sys/time.h
+-
+stdio.h
+-
+inttypes.h
+-
+
