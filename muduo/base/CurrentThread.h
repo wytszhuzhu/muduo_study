@@ -10,6 +10,7 @@ namespace CurrentThread {
     extern __thread int t_cachedTid;
     extern __thread char t_tidString[32];
     extern __thread const char* t_threadName;
+    extern __thread int t_tidStringLength;
     void cacheTid();
 
     inline int tid() {
@@ -17,6 +18,11 @@ namespace CurrentThread {
             cacheTid();
         }
         return t_cachedTid;
+    }
+
+    inline int tidStringLength() // for logging
+    {
+        return t_tidStringLength;
     }
 
     inline const char* tidString() {
