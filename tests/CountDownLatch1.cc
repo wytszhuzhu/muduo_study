@@ -20,12 +20,9 @@ public:
             char name[32];
             snprintf(name, sizeof name, "work thread %d", i);
             threads_.push_back(new muduo::Thread(
-                    std::bind(&Test::threadFunc, this), muduo::string(name)));
+                    boost::bind(&Test::threadFunc, this), muduo::string(name)));
         }
-        for (int i = 0; i < nthreads; ++i)
-        {
-            threads[i]->join();
-        }
+        for_each(threads_.begin(), threads_.end(), boost::bind(&Thread::start, _1));
     }
 
     void run()
